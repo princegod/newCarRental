@@ -1,6 +1,7 @@
-package com.myrentalproject.dao;
+package com.myrentalproject.dao.userDao;
 import java.util.List;
-import com.myrentalproject.model.Address;
+
+import com.myrentalproject.model.user.Address;
 
 public interface AddressDao {
 	public void saveOrUpdate(final Address add);

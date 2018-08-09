@@ -1,7 +1,6 @@
 package com.myrentalproject.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.myrentalproject.model.Address;
-import com.myrentalproject.service.AddressService;
-import com.myrentalproject.service.UserService;
+import com.myrentalproject.model.user.Address;
+import com.myrentalproject.model.user.User;
+import com.myrentalproject.service.userService.AddressService;
+import com.myrentalproject.service.userService.UserService;
 
 @Controller
 @RequestMapping(value="/address")
 public class AddressController {
-	int id=0;
 	@Autowired
 	UserService userservice;
 	@Autowired
@@ -34,7 +33,7 @@ public class AddressController {
 	
 	@RequestMapping(value="/addAddress/{id}",method=RequestMethod.GET)
 	public ModelAndView addAddress(@PathVariable("id") int id) {
-		this.id=id;
+	
 		ModelAndView model=new ModelAndView("address/addressform");//address of ur form
 		Address address=new Address();
 		address.setId(id);
@@ -45,10 +44,28 @@ public class AddressController {
 	}
 	
 	
+	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("addressFrom") Address address) {
 		addressservice.saveOrUpdate(address);
-	    return new  ModelAndView("forword:/address/addresslist");
+	    return new  ModelAndView("redirect:/address/list");//path of your method in your address class
+	}
+	
+	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	 public ModelAndView delete(@PathVariable("id") int id){
+		userservice.deleteUser(id);
+	  
+	  return new ModelAndView("redirect:/user/list");
+	 }
+	
+	@RequestMapping(value="/update/{id}",method=RequestMethod.GET)
+	public ModelAndView update(@PathVariable("id") int id) {
+		
+		ModelAndView model=new ModelAndView("user/form");
+		User user=userservice.findById(id);
+		model.addObject("userForm",user);
+	 return model;
 	}
 	
 }

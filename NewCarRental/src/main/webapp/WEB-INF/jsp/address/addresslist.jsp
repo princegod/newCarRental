@@ -10,7 +10,7 @@
 </head>
 <body>
 
- <spring:url value="/address/addressform" var="addURL"></spring:url>
+ <spring:url value="/address/form" var="addURL"></spring:url>
  <a href="${addURL }">Add new Address </a>
  
  <table width="100%" border="1">

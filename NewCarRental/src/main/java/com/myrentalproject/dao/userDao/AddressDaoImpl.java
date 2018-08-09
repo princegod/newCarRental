@@ -1,4 +1,4 @@
-package com.myrentalproject.dao;
+package com.myrentalproject.dao.userDao;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -7,7 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.myrentalproject.model.Address;
+import com.myrentalproject.model.user.Address;
+
 
 @Repository
 public class AddressDaoImpl implements AddressDao {

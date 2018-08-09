@@ -1,8 +1,9 @@
-package com.myrentalproject.dao;
+package com.myrentalproject.dao.userDao;
 
 import java.util.List;
 
-import com.myrentalproject.model.User;
+import com.myrentalproject.model.user.User;
+
 
 public interface UserDao {
 

@@ -1,8 +1,8 @@
-package com.myrentalproject.service;
+package com.myrentalproject.service.userService;
 
 import java.util.List;
 
-import com.myrentalproject.model.User;
+import com.myrentalproject.model.user.User;
 
 
 public interface UserService {

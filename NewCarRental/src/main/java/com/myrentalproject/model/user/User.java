@@ -1,4 +1,4 @@
-package com.myrentalproject.model;
+package com.myrentalproject.model.user;
 
 import java.util.Collection;
 import java.util.List;

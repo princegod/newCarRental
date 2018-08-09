@@ -1,4 +1,4 @@
-package com.myrentalproject.service;
+package com.myrentalproject.service.userService;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.myrentalproject.dao.AddressDao;
+import com.myrentalproject.dao.userDao.AddressDao;
+import com.myrentalproject.model.user.Address;
 
-import com.myrentalproject.model.*;
 
 
 @Service

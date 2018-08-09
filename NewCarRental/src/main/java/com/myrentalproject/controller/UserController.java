@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.myrentalproject.model.User;
-import com.myrentalproject.service.AddressService;
-import com.myrentalproject.service.UserService;
 
+import com.myrentalproject.model.user.User;
+import com.myrentalproject.service.userService.AddressService;
+import com.myrentalproject.service.userService.UserService;
 
 @Controller
 @RequestMapping(value="/user")
@@ -30,7 +30,7 @@ public class UserController {
 	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public ModelAndView list(){
-		ModelAndView model=new ModelAndView("user/list");
+		ModelAndView model=new ModelAndView("user/userlist");
 		List<User> list=userservice.ListAllUser();
 		model.addObject("list",list);
 		
@@ -42,7 +42,7 @@ public class UserController {
 	//this method will provide the medium to add a new user
 	@RequestMapping(value="/add",method= RequestMethod.GET)
     public ModelAndView add(){
-		ModelAndView model=new ModelAndView("user/form");
+		ModelAndView model=new ModelAndView("user/userform");
 		User user=new User();
 		model.addObject("userForm", user);
      	return model;	
@@ -54,7 +54,7 @@ public class UserController {
 		userservice.saveOrUpdate(user);
 	
 	
-		return new  ModelAndView("forword:/user/list");
+		return new  ModelAndView("redirect:/user/list");
 	}
 
 	
@@ -62,7 +62,7 @@ public class UserController {
 	 public ModelAndView delete(@PathVariable("id") int id){
 		userservice.deleteUser(id);
 	  
-	  return new ModelAndView("forword:/user/list");
+	  return new ModelAndView("redirect:/user/list");
 	 }
 	
 	@RequestMapping(value="/update/{id}",method=RequestMethod.GET)

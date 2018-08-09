@@ -1,4 +1,4 @@
-package com.myrentalproject.dao;
+package com.myrentalproject.dao.userDao;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import com.myrentalproject.model.user.User;
 
-import com.myrentalproject.model.User;
 
 @Repository//@Repository annotation is a marker for any class that fulfills the role or stereotype (also known as Data Access Object or DAO) of a repository
 public class UserDaoImpl  implements UserDao {
