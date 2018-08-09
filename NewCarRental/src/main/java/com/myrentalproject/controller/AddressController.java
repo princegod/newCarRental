@@ -17,6 +17,7 @@ import com.myrentalproject.service.UserService;
 @Controller
 @RequestMapping(value="/address")
 public class AddressController {
+	int id=0;
 	@Autowired
 	UserService userservice;
 	@Autowired
@@ -24,27 +25,30 @@ public class AddressController {
 	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public ModelAndView list() {
-		ModelAndView model=new ModelAndView("address/list");
+		ModelAndView model=new ModelAndView("address/addresslist");
 		List<Address> list=addressservice.ListAllAddress();
 		return model;
 		
 		
 	}
 	
-	@RequestMapping(value="/addAddress",method=RequestMethod.GET)
+	@RequestMapping(value="/addAddress/{id}",method=RequestMethod.GET)
 	public ModelAndView addAddress(@PathVariable("id") int id) {
-		ModelAndView model=new ModelAndView("address/form");//address of ur form
+		this.id=id;
+		ModelAndView model=new ModelAndView("address/addressform");//address of ur form
 		Address address=new Address();
-		model.addObject("id", id);
+		address.setId(id);
+	
 		model.addObject("addressForm", address);//contain modelattribute and refernce of model class
 		
 		return model;
 	}
 	
+	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public ModelAndView save(@PathVariable("id") int id,@ModelAttribute("addressFrom") Address address) {
-		addressservice.saveOrUpdate(id,address);
-	    return new  ModelAndView("forword:/address/list");
+	public ModelAndView save(@ModelAttribute("addressFrom") Address address) {
+		addressservice.saveOrUpdate(address);
+	    return new  ModelAndView("forword:/address/addresslist");
 	}
 	
 }

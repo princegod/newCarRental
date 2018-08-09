@@ -20,7 +20,7 @@ public class AddressDaoImpl implements AddressDao {
 		return sessionfactory.getCurrentSession();
 	}
 	@Override
-	public void saveOrUpdate(int id,Address add) {
+	public void saveOrUpdate(Address add) {
 		
 		getsession().saveOrUpdate(add);
 		

@@ -28,9 +28,9 @@ public class AddressServiceImpl implements  AddressService {
 	
 
 	@Override
-	public void saveOrUpdate(int id,Address add) {
+	public void saveOrUpdate(Address add) {
 		
-		addao.saveOrUpdate(id, add);
+		addao.saveOrUpdate(add);
 	
 	}
 

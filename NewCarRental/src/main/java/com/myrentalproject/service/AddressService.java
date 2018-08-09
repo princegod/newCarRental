@@ -6,7 +6,7 @@ import com.myrentalproject.model.Address;
 
 
 public interface AddressService {
-	public void saveOrUpdate(int id,Address address);
+	public void saveOrUpdate(Address address);
 	public void deleteAddress(int id);
 	public Address findById(int id);
 	boolean isUserUnique(Integer id,String username);

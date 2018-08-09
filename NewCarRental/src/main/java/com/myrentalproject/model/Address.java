@@ -9,8 +9,6 @@ import javax.persistence.Table;
 @Table(name="address")
 public class Address {
 
-	@Id
-	@GeneratedValue
 	private int id;
 	private String Mobile;
     private String Street;
@@ -18,6 +16,7 @@ public class Address {
 	private String State;
 	private String country;
 	private String pincode;
+	@Id
 	private String Email;
 	
 	public Address(String mobile, String street, String city, String state, String country, String pincode,
@@ -33,6 +32,15 @@ public class Address {
 	}
 	public Address() {
 		
+	}
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getMobile() {
 		return Mobile;
